@@ -35,7 +35,6 @@ import (
 	"github.com/google/blueprint/proptools"
 
 	"android/soong/android/soongconfig"
-	"android/soong/remoteexec"
 	"android/soong/shared"
 )
 
@@ -2399,7 +2398,7 @@ func (c *config) ApexBootJars() ConfiguredJarList {
 }
 
 func (c *config) RBEWrapper() string {
-	return c.GetenvWithDefault("RBE_WRAPPER", remoteexec.DefaultWrapperPath)
+	return c.GetenvWithDefault("RBE_WRAPPER", "build/rbe/rewrapper_shim.sh")
 }
 
 // UseHostMusl returns true if the host target has been configured to build against musl libc.
